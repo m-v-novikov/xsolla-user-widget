@@ -1,0 +1,1 @@
+# xsolla-user-widget
