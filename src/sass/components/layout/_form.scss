@@ -1,0 +1,88 @@
+.default-form{
+
+  .form-group{
+    margin-bottom: 10px;
+
+    &.input-text{}
+
+    &.input-textarea{
+      textarea{
+        resize: none;
+        height: 120px;
+      }
+    }
+  }
+
+  .form-control{
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid $border-clr;
+    @include border-radius(.25rem);
+  }
+
+  &.error{
+    .form-control {
+      border-color: $error-clr;
+    }
+  }
+
+  .error-block{
+    font-size: 13px;
+    display: block;
+    padding-top: 5px;
+    color: $error-clr;
+  }
+
+  .submit-btn{
+    background-color: $blue;
+    color: $white;
+    font-size: 16px;
+  }
+
+  .cancel-btn{
+    background-color: $error-clr;
+    color: $white;
+    font-size: 16px;
+  }
+
+  .DateInput_input{
+    height: 38px;
+  }
+
+  .SingleDatePicker, .SingleDatePickerInput, .DateInput{
+    width: 100%;
+  }
+
+  .autocomplete-wrap{
+    position: relative;
+    z-index: 110;
+
+    .rbt-sr-status, .bt-sr-status{
+      display: none;
+    }
+
+    .dropdown-menu{
+      background: $white;
+      border: 1px solid $border-clr;
+      border-top: none;
+      @include box-shadow(0, 4px, 4px, rgba(#000, 0.2));
+
+      .dropdown-item{
+        display: block;
+        color: $dark-grey;
+        padding: 6px 12px;
+        @include box-sizing(border-box);
+
+        &:hover, &.active{
+          background: $light-grey;
+        }
+      }
+    }
+  }
+}

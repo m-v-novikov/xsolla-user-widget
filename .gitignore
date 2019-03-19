@@ -1,0 +1,4 @@
+node_modules/
+public/chunks/
+.idea/
+package-lock.json

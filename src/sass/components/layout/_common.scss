@@ -1,0 +1,106 @@
+@import "header";
+@import "spinner";
+@import "form";
+@import "paginator";
+
+.tasks{
+  &:not(.tasks-loading) {
+    .lds-spinner {
+      display: none;
+    }
+  }
+
+  &.tasks-loading{
+    position: relative;
+    &:before{
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0; top: 0;
+      background: rgba(#000, 0.2);
+      z-index: 8;
+      @include calc("width", "100% + 20px");
+      height: 100%;
+      margin-left: -10px;
+    }
+  }
+
+  .lds-spinner {
+    position: absolute;
+    z-index: 9;
+    left: 50%; top: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+
+.sticky-table-head{
+  z-index: 10;
+  position: relative;
+}
+
+.list-title{
+  background: white;
+  border-bottom: 1px solid lightgray;
+  & > div{
+    padding: 10px 10px;
+  }
+
+  .sorted{
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+
+    .arrows-wrap{
+      margin-left: 5px;
+      @include inline-block(middle);
+      position: relative;
+      height: 10px;
+      width: 10px;
+
+      span{
+        position: absolute;
+        left: 0;
+        color: rgba($grey, 0.2);
+        font-size: 9px;
+
+        &:first-of-type{
+          top: -4px;
+        }
+        &:last-of-type{
+          top: 4px;
+        }
+      }
+    }
+
+    &.active.asc .myIcons:first-of-type{
+      color: rgba($grey, 0.7);
+    }
+
+    &.active.desc .myIcons:last-of-type{
+      color: rgba($grey, 0.7);
+    }
+  }
+}
+
+.tasks-list-empty{
+  background: white;
+}
+
+.tasks-list{
+  position: relative;
+  z-index: 5;
+  margin-top: -2px;
+  .list-item {
+    cursor: pointer;
+    background: white;
+    border-bottom: 1px solid lightgray;
+    td:not(.text){
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    td{
+      padding: 10px 10px;
+    }
+  }
+}
