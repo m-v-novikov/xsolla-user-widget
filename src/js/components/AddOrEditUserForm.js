@@ -1,12 +1,19 @@
 import React, {useState, useEffect, useCallback} from "react";
 import FormInput from "./common/form/FormInput";
-import FormTextarea from "./common/form/FormTextarea";
+import FormCheckbox from "./common/form/FormCheckbox";
 
-export default ({error, requestAction, currentUser }) => {
+import {history} from "../routers/AppRouter";
 
-  const defFieldsObj = currentUser || { username: "", email: "", text: "" };
+const defUser = {"user_name": "", "email": "", "user_custom": "", "enabled": false, "user_id": ""};
+export default ({
+  error,
+  requestAction,
+  isCreate = false,
+  currentUser = defUser,
+  resetError = () => {}
+}) => {
 
-  const [state, setState] = useState(defFieldsObj);
+  const [state, setState] = useState(currentUser);
 
   function onChangeHandler(field, value){
     setState({
@@ -17,56 +24,61 @@ export default ({error, requestAction, currentUser }) => {
 
   function onSubmitHandler(e) {
     e.preventDefault();
+    resetError();
+    requestAction(state);
   }
 
-  function onClearFiltersHandler(e) {
+  function onCancelHandler(e) {
     e.preventDefault();
-    setState({username: "", email: "", text: ""});
+    history.push("/");
+    resetError();
   }
 
   const fields = {
-    "username": "User name",
+    "user_name": "User name",
     "email": "Email",
+    "user_custom": "Custom params"
   };
 
+  if(isCreate){fields["user_id"] = "User id";}
+
   return (
-    <form className={"default-form m20-0 " + (error.isError ? "error": "")} onSubmit={onSubmitHandler}>
+    <form className="default-form m20-0 " onSubmit={onSubmitHandler}>
+
       {
-        error.isError &&
-        <div className={"row"}>
-          { Object.keys(error.txt).map((item, i) => (<span key={i} className={"error-block col-24"}>{error.txt[item]}</span>))}
-        </div>
+        Object.keys(fields)
+          .map( (field, i) => {
+            const fieldsObj = {
+              name: field,
+              placeholder: fields[field],
+              value: state[field] || "",
+              className: (error.isError && error.txt[field]) ? "error": "",
+              onChangeHandler
+            };
+            return (
+              <div className="row" key={i} >
+                {(error.isError && error.txt[field]) && <span className={"error-block col-24"}>{error.txt[field].toString().replace(/\\/g, "")}</span>}
+                <FormInput {...fieldsObj}/>
+              </div>
+            );
+          })
       }
 
-      <div className="row ">
-        {
-          Object.keys(fields)
-            .map( (field, i) => {
-              const fieldsObj = {
-                name: field,
-                placeholder: fields[field],
-                value: state[field],
-                onChangeHandler,
-                className: (!state[field].length ? "has-error" : ""),
-              };
-              return <FormInput key={i} {...fieldsObj}/>;
-            })
-        }
-
-        <FormTextarea
-          name={"text"}
-          placeholder={"Enter text"}
-          value={state.text}
+      <div className={"row"}>
+        {(error.isError && error.txt.enabled) && <span className={"error-block col-24"}>{error.txt.enabled.toString().replace(/\\/g, "")}</span>}
+        <FormCheckbox
+          name={"enabled"}
+          checked={state.enabled}
           onChangeHandler={onChangeHandler}
-          className={(!state.text.length ? "has-error" : "")}
-        />
+          placeholder={"Is user enabled"}/>
+      </div>
 
-
-        <div className={"form-group col-6 col-sm-4 col-xs-6"}>
+      <div className="row ">
+        <div className={"form-group col-4 col-sm-3 col-xs-6"}>
           <button type={"submit"} className={"form-control myIcons i-enter-arrow submit-btn"}/>
         </div>
-        <div className={"form-group col-6 col-sm-4 col-xs-6"}>
-          <button onClick={onClearFiltersHandler} className={"form-control myIcons i-cancel cancel-btn"}/>
+        <div className={"form-group col-4 col-sm-3 col-xs-6"}>
+          <button onClick={onCancelHandler} className={"form-control myIcons i-cancel cancel-btn"}/>
         </div>
       </div>
     </form>

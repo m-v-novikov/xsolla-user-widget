@@ -1,4 +1,4 @@
-const baseURL = 'https://livedemo.xsolla.com/fe/test-task/baev/users';
+import { baseURL } from "./index"
 
 export const fetchUsers = async (action) => {
   try{

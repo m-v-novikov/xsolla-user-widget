@@ -61,6 +61,10 @@ a{
   width: 100%!important;
 }
 
+.w-auto{
+  width: auto!important;
+}
+
 .m40-0{
   margin: 40px 0;
 }
@@ -81,6 +85,10 @@ a{
   margin-right: 10px;
 }
 
+.m-l-10{
+  margin-left: 10px;
+}
+
 .p40-0{
   padding: 40px 0;
 }
@@ -89,12 +97,20 @@ a{
   padding-top: 20px!important;
 }
 
+.p-10{
+  padding: 10px;
+}
+
 .p-20-0{
   padding: 20px 0;
 }
 
 .txt-center{
   text-align: center;
+}
+
+.bold{
+  font-weight: bold;
 }
 
 @include breakpoint-extra-small(){

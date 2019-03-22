@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-export default function DynamicImport({path, props}){
+export default function DynamicImport({path, props, isShowLoading = true}){
 
+    const LoadingModule = () => (isShowLoading ? <div className="content-container pt-20">Loading module...</div> : null);
     const [ Component, setComponent] = useState({module: null});
     let isCancelled = false;
 
@@ -18,7 +19,7 @@ export default function DynamicImport({path, props}){
         }
     }, []);
 
-    if(!Component.module) return <div className="content-container pt-20">Loading module...</div>;
+    if(!Component.module) { return <LoadingModule/> }
     const DynamicComponent = Component.module;
     return <DynamicComponent {...props}/>;
 }

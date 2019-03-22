@@ -13,7 +13,9 @@ export default () => {
   const requestAction = useCallback((offset) => dispatch(requestUsers(offset)), []);
 
   useEffect(() => {
-    requestAction(0);
+    if(!users.usersArr.length){
+      requestAction(0);
+    }
   }, []);
 
   return (

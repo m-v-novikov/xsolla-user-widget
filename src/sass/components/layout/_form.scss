@@ -2,19 +2,10 @@
 
   .form-group{
     margin-bottom: 10px;
-
-    &.input-text{}
-
-    &.input-textarea{
-      textarea{
-        resize: none;
-        height: 120px;
-      }
-    }
   }
 
   .form-control{
-    display: block;
+    @include inline-block(middle);
     width: 100%;
     padding: 6px 12px;
     font-size: 16px;
@@ -24,9 +15,14 @@
     background-clip: padding-box;
     border: 1px solid $border-clr;
     @include border-radius(.25rem);
+
+    &.textarea{
+      resize: none;
+      height: 120px;
+    }
   }
 
-  &.error{
+  .error{
     .form-control {
       border-color: $error-clr;
     }
@@ -43,6 +39,7 @@
     background-color: $blue;
     color: $white;
     font-size: 16px;
+    cursor: pointer;
   }
 
   .cancel-btn{

@@ -27,7 +27,7 @@ export default withRouter(({history, usersArr = [], loader = ""}) => {
                     columns.map((column, i) => {
                       return (
                         <div key={i} className={`${column.field} ${colsClass}`}>
-                          <span className={"dib"}>{column.name}</span>
+                          <span className={"dib bold"}>{column.name}</span>
                         </div>
                       );
                     })

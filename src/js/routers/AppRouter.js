@@ -10,6 +10,7 @@ import { useDispatch, useMappedState } from "redux-react-hook";
 import { setMediaSize } from "../redux/actions/app";
 import Footer from "../components/common/layout/Footer";
 import Header from "../components/common/layout/Header";
+import ModalConductor from "../components/common/modals/ModalConductor";
 
 export const history = createHistory();
 
@@ -43,6 +44,8 @@ export default function AppRouter(){
   return(
     <Router history={history}>
       <div id={"inner-wrapper"} className={app.mediaSize + (app.menuIsOpen ? " menu-open" : "")}>
+
+        <ModalConductor />
 
         <Media
           query="(max-width: 767px)"
