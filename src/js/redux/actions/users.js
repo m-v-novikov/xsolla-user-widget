@@ -14,6 +14,7 @@ export const SET_ADD_OR_EDIT_ERROR = "SET_ADD_OR_EDIT_ERROR";
 
 export const SET_USERS_PAGINATION = "SET_USERS_PAGINATION";
 export const SET_USERS_PROPS = "SET_USERS_PROPS";
+export const SET_LOADER = "SET_LOADER";
 
 export const requestUsers = (offset) => ({type: REQUEST_USERS, offset});
 export const receiveUsers = (usersArr) => ({type: RECEIVE_USERS, usersArr});

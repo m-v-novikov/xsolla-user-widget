@@ -1,5 +1,5 @@
 import { fetchUsers, fetchUserById } from "./requestUsers";
-import {addUser, changeUserBalance, editUser} from "./addOrEditUser";
+import {addUser, changeUserBalance, editUser, transactionsList} from "./addOrEditUser";
 export const baseURL = 'https://livedemo.xsolla.com/fe/test-task/baev/users';
 
 export default {
@@ -7,5 +7,6 @@ export default {
   fetchUserById,
   editUser,
   addUser,
-  changeUserBalance
+  changeUserBalance,
+  transactionsList
 }

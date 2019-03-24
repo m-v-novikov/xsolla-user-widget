@@ -12,12 +12,8 @@ export default () => {
   const dispatch = useDispatch();
   const requestAction = useCallback((id, userFields) => dispatch(requestEditUser(id, userFields)), []);
 
-  useEffect(() => {
-    console.log(users.selectedUser)
-  });
-
   return (
-    <div className={"form-wrapper"}>
+    <div className="form-wrapper">
         {
           !!users.selectedUser["user_id"] ?
             <AddOrEditUserForm error={users.addOrEditError} currentUser={users.selectedUser} requestAction={requestAction}/>

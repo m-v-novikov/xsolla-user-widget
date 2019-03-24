@@ -22,12 +22,12 @@ export default withRouter(({history, usersArr = [], loader = ""}) => {
 
             return (
               <div className={"sticky-table-head" + (isSticky ? " sticky" : "")} style={style}>
-                <div className={"list-title row"}>
+                <div className="list-title row">
                   {
                     columns.map((column, i) => {
                       return (
                         <div key={i} className={`${column.field} ${colsClass}`}>
-                          <span className={"dib bold"}>{column.name}</span>
+                          <span className="dib bold">{column.name}</span>
                         </div>
                       );
                     })
@@ -39,12 +39,12 @@ export default withRouter(({history, usersArr = [], loader = ""}) => {
         </Sticky>
         {
           usersArr.length ?
-            <table className={"tasks-list w-100"}>
+            <table className="tasks-list w-100">
               <tbody>
               {
                 usersArr.map((user, i) => {
                   return (
-                    <tr key={i} className={"list-item row"} onClick={() => {history.push(`/user/${user.user_id}`)}}>
+                    <tr key={i} className="list-item row" onClick={() => {history.push(`/user/${user.user_id}`)}}>
                       <td className={"name " + colsClass} title={user["user_name"]}>{user["user_name"] ? user["user_name"] : "Unknown" }</td>
                       <td className={"email " + colsClass} title={user.email}>{user.email ? user.email : "-"}</td>
                       <td className={"custom " + colsClass} title={user["user_custom"]}>{user["user_custom"] ? user["user_custom"] : "-"}</td>
@@ -58,8 +58,8 @@ export default withRouter(({history, usersArr = [], loader = ""}) => {
               </tbody>
             </table>
             :
-            <div className={"tasks-list-empty row p-20-0"}>
-              <span className={"col-24"}>Users list is Empty!</span>
+            <div className="tasks-list-empty row p-20-0">
+              <span className="col-24">Users list is Empty!</span>
             </div>
         }
         <Spinner/>

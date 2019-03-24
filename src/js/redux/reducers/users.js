@@ -1,4 +1,15 @@
-const defState = {
+import {
+  RECEIVE_USERS,
+  RECEIVE_USER_BY_ID,
+  SET_USERS_PAGINATION,
+  SET_USERS_PROPS,
+  SET_ADD_OR_EDIT_ERROR,
+  SET_CHANGE_BALANCE_ERROR,
+  CHANGE_BALANCE_IN_SELECTED_USER,
+  SET_LOADER
+} from "../actions/users";
+
+export const defState = {
   usersArr: [],
   offset: 0,
   selectedUserId: null,
@@ -31,38 +42,38 @@ export default (
   }) => {
 
   switch (type) {
-    case "RECEIVE_USERS":
+    case RECEIVE_USERS:
       return {
         ...state,
         usersArr
       };
 
-    case "RECEIVE_USER_BY_ID":
+    case RECEIVE_USER_BY_ID:
       return {
         ...state,
         selectedUser,
         selectedUserId: selectedUser["user_id"]
       };
 
-    case "SET_USERS_PAGINATION":
+    case SET_USERS_PAGINATION:
       return {
         ...state,
         usersPagination,
       };
 
-    case "SET_ADD_OR_EDIT_ERROR":
+    case SET_ADD_OR_EDIT_ERROR:
       return {
         ...state,
         addOrEditError
       };
 
-    case "SET_CHANGE_BALANCE_ERROR":
+    case SET_CHANGE_BALANCE_ERROR:
       return {
         ...state,
         changeBalanceError
       };
 
-    case "CHANGE_BALANCE_IN_SELECTED_USER":
+    case CHANGE_BALANCE_IN_SELECTED_USER:
       return {
         ...state,
         selectedUser: {
@@ -71,13 +82,13 @@ export default (
         }
       };
 
-    case "SET_LOADER":
+    case SET_LOADER:
       return {
         ...state,
         loader,
       };
 
-    case "SET_USERS_PROPS":
+    case SET_USERS_PROPS:
       return {
         ...state,
         offset,

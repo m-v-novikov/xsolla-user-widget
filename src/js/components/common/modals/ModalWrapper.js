@@ -62,13 +62,13 @@ export default ({
   return (
     <div className={"modal-wrap" + (isOpened ? " showed" : "")} onClick={closeModal} ref={modalWrapEl}>
       <div className={`modal ${className}`} id={id}>
-        <div className={"modal-header row"}>
-          { title && <h3 className={"title col-20"}>{title}</h3> }
-          <div className={"close-btn"} onClick={closeModalHandler}>
-            <span className={"myIcons i-cancel"}/>
+        <div className="modal-header row">
+          { title && <h3 className="title col-20">{title}</h3> }
+          <div className="close-btn" onClick={closeModalHandler}>
+            <span className="myIcons i-cancel"/>
           </div>
         </div>
-        <div className={"modal-content"}>
+        <div className="modal-content">
           { childrenWithProps }
         </div>
       </div>

@@ -48,7 +48,7 @@ const ChangeBalance = ({closeModal}) => {
   return(
     <div>
       <div className="modal-sub-header row">
-        <p className={"helper col-24"}>Enter balance.</p>
+        <p className="helper col-24">Enter balance.</p>
       </div>
       <div className="modal-sub-content">
 
@@ -56,29 +56,29 @@ const ChangeBalance = ({closeModal}) => {
 
           {
             (users.changeBalanceError.isError && users.changeBalanceError.txt.amount) &&
-            <span className={"error-block col-24"}>{users.changeBalanceError.txt.amount.toString().replace(/\\/g, "")}</span>
+            <span className="error-block col-24">{users.changeBalanceError.txt.amount.toString().replace(/\\/g, "")}</span>
           }
           <FormInput
-            name={"amount"}
-            placeholder={"Balance amount"}
+            name="amount"
+            placeholder="Balance amount"
             value={state.amount}
             onChangeHandler={onChangeHandler}/>
 
-          <div className={"form-group col-4 col-sm-3 col-xs-6"}>
-            <button type={"submit"} className={"form-control myIcons i-enter-arrow submit-btn"}/>
+          <div className="form-group col-4 col-sm-3 col-xs-6">
+            <button type="submit" className="form-control myIcons i-enter-arrow submit-btn"/>
           </div>
-          <div className={"form-group col-4 col-sm-3 col-xs-6"}>
-            <button onClick={onCancelHandler} className={"form-control myIcons i-cancel cancel-btn"}/>
+          <div className="form-group col-4 col-sm-3 col-xs-6">
+            <button onClick={onCancelHandler} className="form-control myIcons i-cancel cancel-btn"/>
           </div>
 
-          {(users.changeBalanceError.isError && users.changeBalanceError.txt.comment) && <span className={"error-block col-24"}>{users.changeBalanceError.txt.comment}</span>}
+          {(users.changeBalanceError.isError && users.changeBalanceError.txt.comment) && <span className="error-block col-24">{users.changeBalanceError.txt.comment}</span>}
           <FormTextarea
-            name={"comment"}
-            placeholder={"Leave a comment"}
+            name="comment"
+            placeholder="Leave a comment"
             value={state.comment}
             onChangeHandler={onChangeHandler}/>
         </form>
       </div>
     </div>
   );
-}
+};

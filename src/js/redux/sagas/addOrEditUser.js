@@ -71,3 +71,15 @@ export function* changeUserBalanceSaga(action) {
   }
 }
 
+export function* transactionsListSaga(action) {
+  try {
+    console.log(action);
+    const url = "/transactions.json?datetime_from=2018-12-28T15%3A00%3A00Z&datetime_to=2018-12-28T15%3A10%3A00Z"; // returns error - no result
+    const response = yield call(api.transactionsList, url);
+    console.log(response);
+
+  }catch (e) {
+    console.log(e)
+  }
+}
+

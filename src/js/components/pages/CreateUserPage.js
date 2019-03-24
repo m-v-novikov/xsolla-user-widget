@@ -18,10 +18,10 @@ export default (props) => {
   }
 
   return (
-    <div className={"create-task-page page-content"}>
+    <div className="create-task-page page-content">
       <div className="content-container">
-        <div className={"row"}>
-          <h1 className={"col-24"}>Create User.</h1>
+        <div className="row">
+          <h1 className="col-24">Create User.</h1>
         </div>
 
         <AddOrEditUserForm

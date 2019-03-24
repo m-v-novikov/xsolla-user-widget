@@ -51,3 +51,13 @@ export const changeUserBalance = async (action) => {
   }
 };
 
+export const transactionsList = async (url) => {
+  console.log(url);
+  try{
+    const response = await fetch(`${baseURL + url}`);
+    return await response.json();
+  }catch (e) {
+    console.log(e)
+  }
+};
+

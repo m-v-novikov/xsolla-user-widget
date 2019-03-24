@@ -57,28 +57,28 @@ export default ({
             };
             return (
               <div className="row" key={i} >
-                {(error.isError && error.txt[field]) && <span className={"error-block col-24"}>{error.txt[field].toString().replace(/\\/g, "")}</span>}
+                {(error.isError && error.txt[field]) && <span className="error-block col-24">{error.txt[field].toString().replace(/\\/g, "")}</span>}
                 <FormInput {...fieldsObj}/>
               </div>
             );
           })
       }
 
-      <div className={"row"}>
-        {(error.isError && error.txt.enabled) && <span className={"error-block col-24"}>{error.txt.enabled.toString().replace(/\\/g, "")}</span>}
+      <div className="row">
+        {(error.isError && error.txt.enabled) && <span className="error-block col-24">{error.txt.enabled.toString().replace(/\\/g, "")}</span>}
         <FormCheckbox
-          name={"enabled"}
+          name="enabled"
           checked={state.enabled}
           onChangeHandler={onChangeHandler}
-          placeholder={"Is user enabled"}/>
+          placeholder="Is user enabled"/>
       </div>
 
       <div className="row ">
-        <div className={"form-group col-4 col-sm-3 col-xs-6"}>
-          <button type={"submit"} className={"form-control myIcons i-enter-arrow submit-btn"}/>
+        <div className="form-group col-3 col-sm-3 col-xs-6">
+          <button type="submit" className="form-control myIcons i-enter-arrow submit-btn"/>
         </div>
-        <div className={"form-group col-4 col-sm-3 col-xs-6"}>
-          <button onClick={onCancelHandler} className={"form-control myIcons i-cancel cancel-btn"}/>
+        <div className="form-group col-3 col-sm-3 col-xs-6">
+          <button onClick={onCancelHandler} className="form-control myIcons i-cancel cancel-btn"/>
         </div>
       </div>
     </form>

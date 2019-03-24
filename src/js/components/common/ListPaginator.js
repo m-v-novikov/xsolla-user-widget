@@ -3,7 +3,7 @@ import React from "react";
 export default ({ usersPagination, requestAction}) => {
 
   return (
-    <ul className={"paginator row mb-20"}>
+    <ul className="paginator row mb-20">
       {
         (!!usersPagination.length && usersPagination.length !== 1) &&
         usersPagination.map((item, i) => {

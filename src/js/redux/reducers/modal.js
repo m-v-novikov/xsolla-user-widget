@@ -1,4 +1,12 @@
-const defStateModal = {
+import {
+  SHOW_MODAL,
+  HIDE_MODAL,
+  RESET_VIEWED_MODAL,
+  SET_CHANGE_BALANCE_MODAL,
+  SET_TRANSACTION_MODAL
+} from "../actions/modal";
+
+export const defStateModal = {
   modalViewed: null,
   isOpen: false,
   dataToModal: {}
@@ -7,26 +15,33 @@ const defStateModal = {
 export default (state = defStateModal, {type, isOpen, modalViewed, dataToModal}) => {
 
   switch (type) {
-    case "SHOW_MODAL":
+    case SHOW_MODAL:
       return {
         ...state,
         isOpen
       };
 
-    case "HIDE_MODAL":
+    case HIDE_MODAL:
       return {
         ...state,
         isOpen,
         dataToModal
       };
 
-    case "RESET_VIEWED_MODAL":
+    case RESET_VIEWED_MODAL:
       return {
         ...state,
         modalViewed
       };
 
-    case "SET_CHANGE_BALANCE_MODAL":
+    case SET_CHANGE_BALANCE_MODAL:
+      return {
+        ...state,
+        modalViewed,
+        dataToModal
+      };
+
+    case SET_TRANSACTION_MODAL:
       return {
         ...state,
         modalViewed,
